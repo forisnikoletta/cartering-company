@@ -1,0 +1,41 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>edu.ubb.cartering</groupId>
+        <artifactId>cartering-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+    </parent>
+    
+    <artifactId>cartering-backend</artifactId>
+    <packaging>ejb</packaging>
+    
+    <dependencies>
+        <dependency>
+  		   <groupId>org.slf4j</groupId>
+  		   <artifactId>slf4j-api</artifactId>
+    	   <scope>provided</scope>
+  	    </dependency>
+    
+        <dependency>
+            <groupId>javax</groupId>
+           <artifactId>javaee-api</artifactId>
+            <scope>provided</scope>
+       </dependency>
+       
+       <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-entitymanager</artifactId>
+          <version>${hibernate.version}</version>
+          <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+          <groupId>com.h2database</groupId>
+          <artifactId>h2</artifactId>
+          <version>${h2.version}</version>
+          <scope>provided</scope>
+      </dependency>
+      
+    </dependencies>
+</project>

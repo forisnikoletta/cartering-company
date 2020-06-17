@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- use version 2.1 of JPA -->
+<persistence version="2.1"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                        http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+    <!-- one persistence unit = we connect to one data source -->
+    <!-- "RESOURCE_LOCAL" = locally defined data source, Java SE style -->
+    <!-- <persistence-unit name="blogPuLocal" transaction-type="RESOURCE_LOCAL">
+
+        <class>edu.ubb.blog.backend.api.BlogPost</class>
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:blog;DB_CLOSE_DELAY=-1" />
+            <property name="javax.persistence.jdbc.user" value="sa" />
+            <property name="javax.persistence.jdbc.password" value="" />
+            <property name="javax.persistence.schema-generation.database.action" value="create" />
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
+
+    <persistence-unit name=""></persistence-unit>
+-->
+
+    <!-- second, JTA based persistence unit -->
+    <persistence-unit name="carteringPu" transaction-type="JTA">
+
+        <!-- the JNDI name of the data source for this persistence unit -->
+        <!-- it's defined in a "-ds.xml" file next to this one -->
+        <jta-data-source>java:jboss/datasources/carteringDS</jta-data-source>
+
+        <!-- list of classes we want to manage with JPA -->
+        <class>edu.ubb.cartering.backend.model.Food</class>
+        <class>edu.ubb.cartering.backend.model.Menu</class>
+        <class>edu.ubb.cartering.backend.model.MenuOrder</class>
+        <class>edu.ubb.cartering.backend.model.State</class>
+        <class>edu.ubb.cartering.backend.model.User</class>
+
+        <!-- only custom configs of jpa -->
+        <properties>
+            <property name="hibernate.show_sql" value="true"/>
+             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
+        </properties>
+
+    </persistence-unit>
+</persistence>
