@@ -20,7 +20,7 @@
         <javaee.version>7.0</javaee.version>
         <build.version>0.0.1-SNAPSHOT</build.version>
         <hibernate.version>5.1.10.Final</hibernate.version>
-        <h2.version>1.4.193</h2.version>
+        <h2.version>2.1.210</h2.version>
     </properties>
     
     <dependencyManagement>
